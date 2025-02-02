@@ -6,9 +6,8 @@ function Header() {
   const [toggle, setToggle] = useState(false);
 
   return (
-    <header className="w-full flex justify-center items-center p-4 shadow-lg fixed top-0 left-0 z-10 bg-white">
+    <header className="fixed  w-full flex justify-center items-center p-4 shadow-lg top-0 left-0 z-10 bg-white">
       <div className="flex w-full max-w-6xl justify-between items-center">
-        {/* Logo Section */}
         <div>
           <img
             src="/images/imageHeading/logo.png"
@@ -29,8 +28,8 @@ function Header() {
           <ul
             className={
               toggle
-                ? "block absolute bg-amber-100 lg:bg-transparent flex-col right-0 w-[150px] lg:w-auto lg:static lg:flex lg:flex-row"
-                : "hidden gap-3 absolute flex-col lg:static lg:flex lg:flex-row"
+                ? "block absolute bg-amber-100 lg:bg-transparent flex-col right-0 w-[150px] lg:w-auto lg:static lg:flex lg:flex-row lg:justify-center lg:items-center"
+                : "hidden gap-15 text-[15px] absolute flex-col lg:static lg:flex lg:flex-row"
             }
           >
             <li>

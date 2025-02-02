@@ -1,3 +1,4 @@
+import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
 import About from "./pages/about/About";
@@ -6,8 +7,14 @@ import Service from "./pages/servicess/Service";
 import Work from "./pages/work/Work";
 import Contact from "./pages/contact/Contact";
 import Header from "./component/Header";
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 function App() {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <>
       <div>
