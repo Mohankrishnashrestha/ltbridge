@@ -1,27 +1,27 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-function Serviceslug() {
+function Workslug() {
   const params = useParams();
   console.log(params.slug);
-  const [service, setService] = useState([]);
-  async function serviceslug() {
+  const [work, setWork] = useState([]);
+  async function workslug() {
     try {
-      const response = await fetch("https://itbridge.com.np/api/service");
+      const response = await fetch("https://itbridge.com.np/api/work");
       const data = await response.json();
-      setService(data.data);
+      setWork(data.data);
       console.log(data.data);
     } catch (error) {
       console.log(error);
     }
   }
-  const filterdatas = service.filter((item) => item.slug === params.slug);
+  const filterdatas = work.filter((item) => item.slug === params.slug);
 
   const fp = filterdatas[0];
   console.log(fp);
 
   useEffect(() => {
-    serviceslug();
+    workslug();
   }, []);
   if (filterdatas.length === 0) {
     return <div>data not found</div>;
@@ -50,4 +50,4 @@ function Serviceslug() {
   );
 }
 
-export default Serviceslug;
+export default Workslug;

@@ -1,4 +1,10 @@
+import { useEffect } from "react";
+import Aos from "aos";
+
 function Home() {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
     <div className="mt-20 w-[100%] flex flex-col justify-center items-center lg:mt-20 ">
       <div className="lg:max-w-6xl lg:mx-auto ">

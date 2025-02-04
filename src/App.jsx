@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import Serviceslug from "./pages/servicess/Serviceslug";
+import Workslug from "./pages/work/Workslug";
 
 function App() {
   useEffect(() => {
@@ -30,6 +31,7 @@ function App() {
         <Route path="/service" element={<Service />} />
         <Route path="/service/:slug" element={<Serviceslug />} />
         <Route path="/work" element={<Work />} />
+        <Route path="/work/:slug" element={<Workslug />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </>
