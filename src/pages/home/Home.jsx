@@ -1,7 +1,34 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Aos from "aos";
+import "aos/dist/aos.css";
+import { NavLink } from "react-router-dom";
 
 function Home() {
+  const [state, setState] = useState([]);
+  async function service() {
+    try {
+      const response = await fetch("https://itbridge.com.np/api/service");
+      const data = await response.json();
+      setState(data.data);
+      // console.log(data.data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  async function happycustomer() {
+    try {
+      const res = await fetch("https://itbridge.com.np/api/happy-client");
+      const data = await res.json();
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  useEffect(() => {
+    service();
+    happycustomer();
+  }, []);
+
   useEffect(() => {
     Aos.init();
   }, []);
@@ -12,7 +39,7 @@ function Home() {
           <img
             src="../images/home/itbridge-1.png"
             alt="image of IT bridge"
-            className=" p-3"
+            className=" p-3 h-screen"
           />
         </div>
         <div className="flex flex-col justify-center lg:flex lg:flex-row">
@@ -62,6 +89,8 @@ function Home() {
             </div>
           </div>
         </div>
+        <section className="w-full h-[50px]"></section>
+
         <div className="lg:not-first:mt-[20px]">
           <div className="flex justify-center bold text-xl p-2 ">
             <h3>It Bridge is Perfect for your Business</h3>
@@ -160,6 +189,35 @@ function Home() {
       </div>
       <div className="bg-[url('/images/home/career-inner.jpg')] w-screen h-[200px] bg-cover bg-center relative flex justify-center items-center linear-gradient(180deg, rgba(138,8,53,0.5) 0%, rgba(187,37,132,0.5) 35%, rgba(193,107,164,0.5) 65%, rgba(58,170,193,0.5) 100%">
         <div className="text-white absolute"> hello</div>
+      </div>
+      <div className="max-w-6xl mx-auto flex flex-col py-2 ">
+        <div className="flex justify-center items-center p-5">
+          <h2 className="font-medium text-xl">
+            Services we provide for you business
+          </h2>
+        </div>
+        <ul className="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 gap-5 ">
+          {state.map((item, index) => (
+            <li
+              key={index}
+              className="flex-col flex justify-center items-center"
+            >
+              <div
+                className="relative bg-cover bg-center flex  items-end w-90 h-60 transition-transform p-5 group-hover:scale-110"
+                style={{ backgroundImage: `url(${item.photo})` }}
+              >
+                <NavLink to={"/service/" + item.slug}>
+                  <h3 className="absolutes text-white inset-0 ">
+                    {item.title}
+                  </h3>
+                </NavLink>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="max-w-6xl mx-auto flex flex-col py-2 ">
+        <ul></ul>
       </div>
     </div>
   );

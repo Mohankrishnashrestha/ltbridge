@@ -12,6 +12,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import Serviceslug from "./pages/servicess/Serviceslug";
 import Workslug from "./pages/work/Workslug";
+import Careerslug from "./pages/career/Careerslug";
 
 function App() {
   useEffect(() => {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/career" element={<Career />} />
+        <Route path="/career/:slug" element={<Careerslug />} />
         <Route path="/service" element={<Service />} />
         <Route path="/service/:slug" element={<Serviceslug />} />
         <Route path="/work" element={<Work />} />

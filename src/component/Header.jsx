@@ -90,7 +90,7 @@ function Header() {
                   isActive ? "text-blue-600" : "hover:text-blue-600"
                 }
               >
-                Contact
+                Contact Us
               </NavLink>
             </li>
           </ul>

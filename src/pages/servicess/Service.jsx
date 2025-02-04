@@ -24,7 +24,13 @@ function Service() {
           <h2 className="text-white text-2xl">Services</h2>
         </div>
       </div>
+      <section className="w-full h-[50px]"></section>
       <div className="max-w-6xl mx-auto flex flex-col py-2 ">
+        <div className="flex justify-center items-center p-5">
+          <h2 className="font-medium text-xl">
+            Services we provide for you business
+          </h2>
+        </div>
         <ul className="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 gap-5 ">
           {state.map((item, index) => (
             <li
