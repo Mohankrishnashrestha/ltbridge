@@ -18,7 +18,7 @@ function Service() {
   }, []);
 
   return (
-    <div className="w-full justify-center items-center mt-20">
+    <div className="w-full mt-20">
       <div className="bg-[#00000063] h-40 w-screen relative flex justify-center items-center">
         <div className="absolute">
           <h2 className="text-white text-2xl">Services</h2>

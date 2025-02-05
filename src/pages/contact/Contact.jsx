@@ -1,65 +1,111 @@
-import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { TiTick } from "react-icons/ti";
-import Aos from "aos";
+import { useState } from "react";
 
 function Contact() {
-  const [state, setState] = useState([]);
-  async function contact() {
-    try {
-      const response = await fetch("https://itbridge.com.np/api/work");
-      const data = await response.json();
-      setState(data.data);
-      console.log(data.data);
-    } catch (error) {
-      console.error(error);
+  const [name, setName] = useState("");
+
+  console.log(name);
+  const [email, setEmail] = useState();
+  const [number, setNumber] = useState();
+  const [subject, setSubject] = useState();
+  const [mind, setMind] = useState();
+  const [error, setError] = useState("");
+  function submit() {
+    if (name === "") {
+      setError("Enter the name!");
+      return;
     }
+    if (email === "") {
+      setError("Enter the name!");
+      return;
+    }
+    if (number === "") {
+      setError("Enter the name!");
+      return;
+    }
+    if (subject === "") {
+      setError("Enter the name!");
+      return;
+    }
+    if (mind === "") {
+      setError("Enter the name!");
+      return;
+    }
+    setError("");
+    setEmail("");
+    setName("");
+    setNumber("");
+    setSubject("");
+    setMind("");
   }
-  useEffect(() => {
-    contact();
-  }, []);
-  useEffect(() => {
-    Aos.init();
-  }, []);
+
   return (
-    <div className="w-full justify-center items-center mt-20">
-      <div className="bg-[#00000063] h-50 w-screen relative flex justify-center items-center">
+    <div className="w-full">
+      <section className="w-full h-20"></section>
+      <div className="bg-[#00000063] lg:h-50 h-40 w-screen relative flex justify-center items-center">
         <div className="absolute">
-          <h2 className="text-white text-3xl font-medium">Work</h2>
+          <h2 className="text-white text-2xl">Work</h2>
         </div>
       </div>
-      <section className="w-full h-[50px]"></section>
-      <div className="max-w-6xl mx-auto">
-        <ul className="grid grid-cols-1 lg:grid-cols-2 sm:grid-cols-2 gap-5  ">
-          {state.map((item, index) => (
-            <li
-              key={index}
-              className="flex-col flex justify-center items-center shadow"
-            >
-              <div className="flex w-full gap-2 p-2">
-                <div className="lg:w-[30%]">
-                  <NavLink to={"/work/" + item.slug}>
-                    <img
-                      src={item.photo}
-                      alt=""
-                      className="w-35"
-                      data-aos="fade-up"
-                      data-aos-duration="1000"
-                    />
-                  </NavLink>
-                </div>
-                <div className="lg:w-[70%] flex flex-col items-start justify-center p-2">
-                  <NavLink to={"/work/" + item.slug}>
-                    <h2 className="font-bold hover:underline">{item.title}</h2>
-                  </NavLink>
+      <div className="max-w-6xl mx-auto lg:flex gap-3">
+        <div className="lg:w-[70%] p-5 shadow flex flex-col items-center">
+          <h2 className="font-medium text-xl">
+            Contact us about anything related to our company or services.
+            We&apos;ll do our best to get back to you as soon as possible.
+          </h2>
 
-                  <p className="text-[15px] mb-5">{item.alias}</p>
-                  <TiTick className="text-2xl" />
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
+          <div>{error}</div>
+          <div className="flex flex-col gap-5 p-2 lg:w-[70%] ">
+            <input
+              type="text"
+              placeholder="Full Name"
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+              className="shadow p-2"
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              className="shadow p-2"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            />
+            <input
+              type="number"
+              placeholder="Number"
+              className="shadow p-2"
+              onChange={(e) => setNumber(e.target.value)}
+              value={number}
+            />
+            <input
+              type="text"
+              placeholder="Subject"
+              className="shadow p-2"
+              onChange={(e) => setSubject(e.target.value)}
+              value={subject}
+            />
+            <input
+              type="text"
+              placeholder="What's on your mind?"
+              className="shadow p-2"
+              onChange={(e) => setMind(e.target.value)}
+              value={mind}
+            />
+            <button
+              className="border p-2 w-[200px] bg-amber-900 text-white "
+              onClick={submit}
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+        <div className="lg:w-[30%] p-5 shadow">
+          <h2 className="font-medium text-xl">Banepa</h2>
+          <div className="p-2 text-gray-500 leading-10">
+            <p>Banepa-8 Shantinagar</p>
+            <p>9845046048 </p>
+            <p>info@itbridge.com.np</p>
+          </div>
+        </div>
       </div>
     </div>
   );

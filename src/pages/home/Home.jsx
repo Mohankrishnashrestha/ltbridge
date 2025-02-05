@@ -100,7 +100,7 @@ function Home() {
               <div
                 className="lg:flex flex-col justify-center p-2 items-center gap-[10px]"
                 data-aos="fade-right"
-                data-aos-duration="1000"
+                data-aos-duration="2000"
               >
                 <img
                   src="/images/home/i1.png"
