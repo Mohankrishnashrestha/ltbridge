@@ -1,5 +1,7 @@
 import { useState } from "react";
-
+import { FaLocationDot } from "react-icons/fa6";
+import { FaPhoneAlt } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 function Contact() {
   const [name, setName] = useState("");
 
@@ -101,11 +103,42 @@ function Contact() {
         <div className="lg:w-[30%] p-5 shadow">
           <h2 className="font-medium text-xl">Banepa</h2>
           <div className="p-2 text-gray-500 leading-10">
-            <p>Banepa-8 Shantinagar</p>
-            <p>9845046048 </p>
-            <p>info@itbridge.com.np</p>
+            <p className="flex gap-2 flex-row items-center">
+              <FaLocationDot />
+              Banepa-8 Shantinagar
+            </p>
+            <p>
+              <a
+                href="tel:9845046048"
+                className="flex gap-2 flex-row items-center"
+              >
+                <FaPhoneAlt />
+                9845046048
+              </a>
+            </p>
+            <p>
+              <a
+                href="maito:info@itbridge.com.np"
+                className="flex gap-2 flex-row items-center"
+              >
+                <MdEmail />
+                info@itbridge.com.np
+              </a>
+            </p>
           </div>
         </div>
+      </div>
+      <section className="w-screen h-[50px]"></section>
+      <div className="max-w-6xl mx-auto">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3534.5570156424033!2d85.51351089999999!3d27.638233200000016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb0fe087a9de87%3A0xe4828325dc04fc0!2sInformation%20Technology%20Bridge%20(IT%20BRIDGE%20)!5e0!3m2!1sen!2snp!4v1738776065938!5m2!1sen!2snp"
+          width="600"
+          height="450"
+          style={{ border: "0" }}
+          allowfullscreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
     </div>
   );
